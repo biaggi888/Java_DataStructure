@@ -61,7 +61,7 @@ public class SelectSortAndBinarySearch
       switch (compare(value, a[middle])) {
         case 0 :
           return middle;
-          break;
+
         case -1 :
           right = middle - 1;
           break;
