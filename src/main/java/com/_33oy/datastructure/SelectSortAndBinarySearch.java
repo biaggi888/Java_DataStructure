@@ -15,6 +15,27 @@ public class SelectSortAndBinarySearch
       System.exit(0);
     }
     a = new int[n];
+    /*
+     * for (int i = 0; i < n; i++) { a[i] = (int) (Math.random() * 1000);
+     * System.out.print(" No. " + (i + 1) + "=" + a[i]); if (i % 10 == 0) {
+     * System.out.println(""); } }
+     */
+    print(a);
+    sort(a);
+    System.out.println("\nAfter sort \n\n");
+    print(a);
+
+    System.out.println("\nEnter an number to search :");
+    int x = in.nextInt();
+    if (x == -1) {
+      System.out.println("Not result !");
+      System.exit(0);
+    }
+    System.out.println("\nNo. " + (x + 1) + a[x]);
+  }
+
+  public static void print(int[] a) {
+    int n = a.length;
     for (int i = 0; i < n; i++) {
       a[i] = (int) (Math.random() * 1000);
       System.out.print(" No. " + (i + 1) + "=" + a[i]);
@@ -22,20 +43,18 @@ public class SelectSortAndBinarySearch
         System.out.println("");
       }
     }
-    sort(a);
-    System.out.println(a.toString());
-    System.out.println("Enter an number to search :");
   }
 
   public static void sort(int[] a) {
     int len = a.length;
     for (int i = 0; i < len - 1; i++) {
       int min = i;
-      for (int j = 0; j < len; j++) {
+      for (int j = i + 1; j < len; j++) {
         if (a[j] < a[min]) {
           min = j;
         }
       }
+      swap(a, i, min);
     }
   }
 
@@ -61,7 +80,6 @@ public class SelectSortAndBinarySearch
       switch (compare(value, a[middle])) {
         case 0 :
           return middle;
-
         case -1 :
           right = middle - 1;
           break;
