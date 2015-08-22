@@ -1,4 +1,4 @@
-package org.gradle;
+package org.misc;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
