@@ -1,7 +1,7 @@
 package Graph;
 
 /**
- * Created by Í×‰¤Î¥é¥¤¥À©` on 22/08/15.
+ * Created by å¾©è®ã®ãƒ©ã‚¤ãƒ€ãƒ¼ on 22/08/15.
  */
 public class Vertex
 {

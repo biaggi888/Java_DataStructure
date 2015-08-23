@@ -15,8 +15,8 @@ public class StackX
   }
 
   public boolean push(int value) {
-    if(st == null) {
-      throw new NullPointerException("Stack == null");
+    if(top + 1 > SIZE - 1) {
+      throw new IndexOutOfBoundsException("top > size");
     }
     st[++top] = value;
     return true;

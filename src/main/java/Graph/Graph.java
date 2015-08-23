@@ -7,7 +7,7 @@ import javax.swing.plaf.metal.MetalIconFactory;
 /**
  * Created by èÕ◊â§Œ•È•§•¿©` on 22/08/15.
  */
-//TODO be review
+//TODO how to get node?
 public class Graph
 {
   private static final int MAX_VERTEX = 20;
@@ -15,6 +15,7 @@ public class Graph
   private boolean[][] adjMatrix;
   private int numberOfVertex;
   private StackX stack;
+  private Queue queue;
 
   public Graph() {
     vertexArray = new Vertex[MAX_VERTEX];
@@ -24,6 +25,7 @@ public class Graph
     }
     numberOfVertex = 0;
     stack = new StackX();
+    queue = new Queue();
   }
 
   public void addVertex(char lable) {
@@ -43,16 +45,36 @@ public class Graph
     vertexArray[0].wasVisited = true;
     displayVertex(0);
     stack.push(0);
-    while (!stack.isEmpty()) {
+    for (;!stack.isEmpty();) {
       int i = getAdjUnvisitedVertex(stack.peek());
       if(i == -1) {
         stack.pop();
       } else {
-        vertexArray[i].wasVisited = false;
+        vertexArray[i].wasVisited = true;
         displayVertex(i);
         stack.push(i);
       }
     }
+
+    for (int i = 0; i < numberOfVertex; i++) {
+      vertexArray[i].wasVisited = false;
+    }
+  }
+
+  public void breathFirstSearch() {
+    vertexArray[0].wasVisited = true;
+    queue.push(0);
+    for(;!queue.isEmpty();) {
+      int i = getAdjUnvisitedVertex(queue.peek());
+      if (i == -1) {
+        queue.pop();
+      } else {
+        vertexArray[i].wasVisited = true;
+        displayVertex(i);
+        queue.push(i);
+      }
+    }
+
 
     for (int i = 0; i < numberOfVertex; i++) {
       vertexArray[i].wasVisited = false;
