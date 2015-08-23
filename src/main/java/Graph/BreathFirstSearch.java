@@ -19,6 +19,9 @@ public class BreathFirstSearch
     g.addAdge(3, 4);
     g.addAdge(1, 2);
     g.addAdge(0, 6);
-    g.breathFirstSearch();
+//    System.out.println("Breath First Search v1 \n");
+//    g.breathFirstSearch();
+    System.out.println("Breath First Search v2 \n");
+    g.breathFirstSearch2();
   }
 }

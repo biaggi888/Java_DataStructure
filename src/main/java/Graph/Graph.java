@@ -61,6 +61,8 @@ public class Graph
     }
   }
 
+  /**
+   * Method Version 1
   public void breathFirstSearch() {
     vertexArray[0].wasVisited = true;
     queue.push(0);
@@ -74,8 +76,28 @@ public class Graph
         queue.push(i);
       }
     }
+    for (int i = 0; i < numberOfVertex; i++) {
+      vertexArray[i].wasVisited = false;
+    }
+  }
+   */
 
-
+  /**
+   * method version 2
+   */
+  public void breathFirstSearch2() {
+    vertexArray[0].wasVisited = true;
+    displayVertex(0);
+    queue.push(0);
+    int v2;
+    while (!queue.isEmpty()) {
+      int v1 = queue.pop();
+      while ((v2 = getAdjUnvisitedVertex(v1))!=-1) {
+        vertexArray[v2].wasVisited = true;
+        displayVertex(v2);
+        queue.push(v2);
+      }
+    }
     for (int i = 0; i < numberOfVertex; i++) {
       vertexArray[i].wasVisited = false;
     }
