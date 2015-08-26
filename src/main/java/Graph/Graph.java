@@ -61,6 +61,27 @@ public class Graph
     }
   }
 
+  public void createMinimumSpanningTree() {
+    vertexArray[0].wasVisited = true;
+    stack.push(0);
+    while (! stack.isEmpty()) {
+      int curVertex = stack.peek();
+      int v1 = getAdjUnvisitedVertex(curVertex);
+      if (v1 == - 1) {
+        stack.pop();
+      } else {
+        vertexArray[v1].wasVisited = true;
+        stack.push(v1);
+        displayVertex(curVertex);
+        System.out.print(" -> ");
+        displayVertex(v1);
+        System.out.print("\n");
+      }
+    }
+    for (int i = 0; i < numberOfVertex; i++) {
+      vertexArray[i].wasVisited = false;
+    }
+  }
   /**
    * Method Version 1
   public void breathFirstSearch() {

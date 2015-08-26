@@ -5,7 +5,7 @@ package Graph;
  */
 public class StackX
 {
-  private static final int SIZE = 20;
+  private static final int SIZE = 30;
   private int st[];
   private int top;
 
